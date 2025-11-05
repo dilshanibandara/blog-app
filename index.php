@@ -43,8 +43,8 @@ closeDBConnection($conn);
             <ul class="nav-menu">
                 <li><a href="index.php">Home</a></li>
                 <?php if (isLoggedIn()): ?>
+                     <li><span class="nav-user">Hello, <?php echo e(getUsername()); ?></span></li>
                     <li><a href="create-blog.php" class="btn btn-primary btn-sm">Create Blog</a></li>
-                    <li><span class="nav-user">Hello, <?php echo e(getUsername()); ?></span></li>
                     <li><a href="logout.php" class="btn btn-secondary btn-sm">Logout</a></li>
                 <?php else: ?>
                     <li><a href="login.php" class="btn btn-secondary btn-sm">Login</a></li>
@@ -58,12 +58,14 @@ closeDBConnection($conn);
     <div class="container main-content">
         <div class="page-header">
             <h1>Latest Blog Posts</h1>
-            <?php if (isLoggedIn()): ?>
+            
+            
+        </div>
+        <?php if (isLoggedIn()): ?>
                 <a href="create-blog.php" class="btn btn-primary">
                     <span>+</span> New Post
                 </a>
             <?php endif; ?>
-        </div>
 
         <?php if ($flash): ?>
             <div class="alert alert-<?php echo e($flash['type']); ?>">
