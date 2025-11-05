@@ -36,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($errors)) {
         $conn = getDBConnection();
         
-        $stmt = $conn->prepare("INSERT INTO blogPost (user_id, title, content) VALUES (?, ?, ?)");
+        $stmt = $conn->prepare("INSERT INTO blogpost (user_id, title, content) VALUES (?, ?, ?)");
         $stmt->bind_param("iss", $user_id, $title, $content);
         
         if ($stmt->execute()) {

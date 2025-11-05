@@ -22,7 +22,7 @@ if ($blog_id <= 0) {
 $conn = getDBConnection();
 
 // Fetch blog post to verify ownership
-$stmt = $conn->prepare("SELECT user_id FROM blogPost WHERE id = ?");
+$stmt = $conn->prepare("SELECT user_id FROM blogpost WHERE id = ?");
 $stmt->bind_param("i", $blog_id);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -42,7 +42,7 @@ if (!isOwner($blog['user_id'])) {
 }
 
 // Delete the blog post
-$stmt = $conn->prepare("DELETE FROM blogPost WHERE id = ? AND user_id = ?");
+$stmt = $conn->prepare("DELETE FROM blogpost WHERE id = ? AND user_id = ?");
 $user_id = getUserId();
 $stmt->bind_param("ii", $blog_id, $user_id);
 

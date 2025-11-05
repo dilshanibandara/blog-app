@@ -18,10 +18,10 @@ if ($blog_id <= 0) {
 
 // Fetch blog post with author information
 $conn = getDBConnection();
-$stmt = $conn->prepare("SELECT blogPost.*, user.username 
-                        FROM blogPost 
-                        INNER JOIN user ON blogPost.user_id = user.id 
-                        WHERE blogPost.id = ?");
+$stmt = $conn->prepare("SELECT blogpost.*, user.username 
+                        FROM blogpost 
+                        INNER JOIN user ON blogpost.user_id = user.id 
+                        WHERE blogpost.id = ?");
 $stmt->bind_param("i", $blog_id);
 $stmt->execute();
 $result = $stmt->get_result();

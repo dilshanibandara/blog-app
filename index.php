@@ -12,10 +12,10 @@ $flash = getFlashMessage();
 
 // Fetch all blog posts with author information
 $conn = getDBConnection();
-$query = "SELECT blogPost.*, user.username 
-          FROM blogPost 
-          INNER JOIN user ON blogPost.user_id = user.id 
-          ORDER BY blogPost.created_at DESC";
+$query = "SELECT blogpost.*, user.username 
+          FROM blogpost 
+          INNER JOIN user ON blogpost.user_id = user.id 
+          ORDER BY blogpost.created_at DESC";
 $result = $conn->query($query);
 $blogs = [];
 

@@ -23,7 +23,7 @@ $errors = [];
 $conn = getDBConnection();
 
 // Fetch blog post
-$stmt = $conn->prepare("SELECT * FROM blogPost WHERE id = ?");
+$stmt = $conn->prepare("SELECT * FROM blogpost WHERE id = ?");
 $stmt->bind_param("i", $blog_id);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     // Update blog post if no errors
     if (empty($errors)) {
-        $stmt = $conn->prepare("UPDATE blogPost SET title = ?, content = ? WHERE id = ? AND user_id = ?");
+        $stmt = $conn->prepare("UPDATE blogpost SET title = ?, content = ? WHERE id = ? AND user_id = ?");
         $user_id = getUserId();
         $stmt->bind_param("ssii", $title, $content, $blog_id, $user_id);
         
