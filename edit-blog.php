@@ -95,7 +95,10 @@ $content = $_POST['content'] ?? $blog['content'];
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container nav-container">
-            <a href="index.php" class="logo">BlogApp</a>
+            <a href="index.php" class="logo">
+    <img src="assets/images/logo.png" alt="BlogApp" class="logo-image">
+    <span class="logo-text">BlogApp</span>
+</a>
             <ul class="nav-menu">
                 <li><a href="index.php">Home</a></li>
                 <li><a href="create-blog.php">Create Blog</a></li>
